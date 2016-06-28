@@ -32,7 +32,8 @@ $(function(){
 	//update the price of the fruit on the page
 	function updateFruit(arr){
 		for (var i = 0; i < arr.length; i++) {
-			console.log(fruits[i].price);
+			//console.log(fruits[i].price);
+			$('#' + fruits[i].name).text('testing')
 		}
 	}
 
