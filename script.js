@@ -1,7 +1,6 @@
 $(function(){
 	var fruits = [];
 	var wallet = 100;
-	var UserFruits = [0,0,0,0];
 
 	fruits.push(new Fruit('Apples', 2));
 	fruits.push(new Fruit('Bananas', .75));
@@ -9,8 +8,18 @@ $(function(){
 	fruits.push(new Fruit('Oranges', 1.58));
 	updatWallet(wallet);
 	updateFruit(fruits);
+	updateInventory(fruits);
 
+	$('main').on('click', function(event){
+		var pickedFruit = event.target;
+		pickedFruit = pickedFruit.closest("div").id;
 
+		switch(pickedFruit){
+			case "Apples":
+				
+		}
+
+	})
 
 	//test that our fruits array is working
 	//console.log(fruits[0].name);
@@ -22,6 +31,7 @@ $(function(){
 	function Fruit(name, price){
 		this.name = name;
 		this.price = price;
+		this.quantity = 0;
 	}
 
 	// edit the wallet ammount
@@ -33,9 +43,13 @@ $(function(){
 	function updateFruit(arr){
 		for (var i = 0; i < arr.length; i++) {
 			//console.log(fruits[i].price);
-			$('#' + fruits[i].name).text('testing')
+			$('#' + fruits[i].name).children('h3').text('$' + fruits[i].price);
 		}
 	}
-
+	function updateInventory(arr){
+		for (var i = 0; i < arr.length; i++){
+			$('#num' + fruits[i].name).text(fruits[i].quantity);
+		}
+	}
 
 });
