@@ -8,6 +8,7 @@ $(function(){
 	fruits.push(new Fruit('Grapes', 3.01));
 	fruits.push(new Fruit('Oranges', 1.58));
 	updatWallet(wallet);
+	updateFruit(fruits);
 
 
 
@@ -28,9 +29,10 @@ $(function(){
 	function updatWallet(ammount){
 		$('#wallet').html('<h3>Total:$'+ ammount + '</h3>');
 	}
+	//update the price of the fruit on the page
 	function updateFruit(arr){
 		for (var i = 0; i < arr.length; i++) {
-			$().arr[i]
+			console.log(fruits[i].price);
 		}
 	}
 
