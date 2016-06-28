@@ -2,6 +2,7 @@
   display: inline-block;
   border: 2px solid black;
   margin 5px;
+  cursor: pointer;
 }
 #inventory{
   margin: 0 auto;

@@ -13,10 +13,10 @@ $(function(){
 	$('main').on('click', function(event){
 		var pickedFruit = event.target;
 		pickedFruit = pickedFruit.closest("div").id;
-
+		console.log(pickedFruit);
 		switch(pickedFruit){
 			case "Apples":
-				
+
 		}
 
 	})
