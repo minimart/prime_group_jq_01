@@ -10,6 +10,7 @@ $(function(){
 	updateFruit(fruits);
 	updateInventory(fruits);
 
+	//event handler for purchasing fruit
 	$('main').on('click', function(event){
 		var pickedFruit = event.target;
 		pickedFruit = pickedFruit.closest("div").id;
