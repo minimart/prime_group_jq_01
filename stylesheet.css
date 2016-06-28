@@ -1,0 +1,16 @@
+.fruit{
+  display: inline-block;
+  border: 2px solid black;
+  margin 5px;
+}
+#inventory{
+  margin: 0 auto;
+  border: 2px solid black;
+}
+#wallet{
+  float: left;
+  border: 2px solid black;
+}
+table, tr, td{
+  border: 2px solid black;
+}
