@@ -31,7 +31,6 @@ $(function(){
 				// console.log(fruits[0].price);
 				averagePrice(applesAverage, 'Apples');
 				updateWallet(fruits[pickedIndex].price);
-
 			} else {
 				alert('You\'re broke!');
 			}
@@ -43,6 +42,7 @@ $(function(){
 				purchasedPrice = fruits[1].price;
 				bananasAverage.push(purchasedPrice);
 				averagePrice(bananasAverage, 'Bananas');
+				updateWallet(fruits[pickedIndex].price);
 				} else {
 								alert('You\'re broke!');
 				}
