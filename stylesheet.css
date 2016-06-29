@@ -41,16 +41,9 @@ background-size:40px 60px;
   float: left;
   padding:5px;
 }
-table{
-  width: 99%;
-  margin: auto;
-  border: 2px solid black;
-  border-radius: 2px;
-}
 th{
-  background-color: gray;
+  background-color: #cccccc;
 }
 table, tr, th, td{
   text-align: center;
-
 }
