@@ -4,92 +4,95 @@
 		<meta charset="utf-8">
 		<title>Fruit Market</title>
 		<meta name="description" content="Webpage">
-		<link href="stylesheet.css" rel="stylesheet">
+		<link href="cssReset.css" rel="stylesheet"  />
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="stylesheet.css" rel="stylesheet" />
 		<script src="jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<script src="script.js"></script>
 	</head>
 
 	<body>
-		<header>
+		<header class="page-header">
 			<h1>The Fruit Market</h1>
 		</header>
-		<main>
+		<main class="panel-body">
 			<div id="Apples" class="fruit">
 				<img src="fruitIcons/svg/apple.svg" width="150px" />
 				<h2>Apples</h2>
 				<h3>$</h3>
-				<input type="button" id="Apples" value="Buy!">
+				<input class='btn btn-success' type="button" id="Apples" value="Buy!">
 			</div>
 			<div id="Bananas" class="fruit">
 				<img src="fruitIcons/svg/banana.svg" width="150px" />
 				<h2>Bananas</h2>
 				<h3>$</h3>
-				<input type="button" id="Bananas" value="Buy!">
+				<input class='btn btn-success' type="button" id="Bananas" value="Buy!">
 			</div>
 			<div id="Grapes" class="fruit">
 				<img src="fruitIcons/svg/grapes.svg" width="150px" />
 				<h2>Grapes</h2>
 				<h3>$</h3>
-				<input type="button" id="Grapes" value="Buy!">
+				<input class='btn btn-success' type="button" id="Grapes" value="Buy!">
 			</div>
 			<div id="Oranges"class="fruit">
 				<img src="fruitIcons/svg/orange.svg" width="150px" />
 				<h2>Oranges</h2>
 				<h3>$</h3>
-				<input type="button" id="Oranges" value="Buy!">
+				<input class='btn btn-success' type="button" id="Oranges" value="Buy!">
 			</div>
 			<div id="inventory">
 				<h3>Inventory</h3>
 				<table>
-					<th>
 						<tr>
-							<td>
+							<th>
 								Apples
-							</td>
-							<td>
+							</th>
+							<th>
 								Bananas
-							</td>
-							<td>
+							</th>
+							<th>
 								Grapes
-							</td>
-							<td>
+							</th>
+							<th>
 								Oranges
+							</th>
+						</tr>
+					<tbody>
+						<tr>
+							<td id="numApples">
+								0
+							</td>
+							<td id="numBananas">
+								0
+							</td>
+							<td id="numGrapes">
+								0
+							</td>
+							<td id="numOranges">
+								0
 							</td>
 						</tr>
-					</th>
-					<tr>
-						<td id="numApples">
-							0
-						</td>
-						<td id="numBananas">
-							0
-						</td>
-						<td id="numGrapes">
-							0
-						</td>
-						<td id="numOranges">
-							0
-						</td>
-					</tr>
-					<tr>
-						<td colspan="4">
-							Average Prices
-						</td>
-					</tr>
-					<tr>
-						<td class="Apples">
-							0
-						</td>
-						<td class="Bananas">
-							0
-						</td>
-						<td class="Grapes">
-							0
-						</td>
-						<td class="Oranges">
-							0
-						</td>
-					</tr>
+						<tr>
+							<th colspan="4">
+								Average Prices
+							</th>
+						</tr>
+						<tr>
+							<td class="Apples">
+								0
+							</td>
+							<td class="Bananas">
+								0
+							</td>
+							<td class="Grapes">
+								0
+							</td>
+							<td class="Oranges">
+								0
+							</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 			<div id="wallet">
