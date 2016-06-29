@@ -16,7 +16,8 @@ $(function(){
 
 		switch(pickedFruit){
 			case "Apples":
-				
+			//test
+
 		}
 
 	})
