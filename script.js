@@ -1,7 +1,11 @@
 $(function(){
 	var fruits = [];
 	var wallet = 100;
-	var averageArray = [];
+
+	var applesAverage = [];
+	var bananasAverage = [];
+	var grapesAverage = [];
+	var orangesAverage = [];
 
 	fruits.push(new Fruit('Apples', 2));
 	fruits.push(new Fruit('Bananas', .75));
@@ -11,6 +15,7 @@ $(function(){
 	updateFruit(fruits);
 	updateInventory(fruits);
 
+
 	$('input').on('click', function(){
 		var pickedFruit = $(this).attr("id");
 		var pickedIndex = 0;
@@ -18,29 +23,57 @@ $(function(){
 
 		switch(pickedFruit){
 			case "Apples":
+				if(fruits[0].price < wallet){
 				fruits[0].quantity +=1;
 				pickedIndex = 0;
 				purchasedPrice = fruits[0].price;
+				applesAverage.push(purchasedPrice);
+				// console.log(fruits[0].price);
+				averagePrice(applesAverage, 'Apples');
+				updateWallet(fruits[pickedIndex].price);
+
+			} else {
+				alert('You\'re broke!');
+			}
 				break;
 			case "Bananas":
+			if(fruits[1].price < wallet){
 				fruits[1].quantity += 1;
 				pickedIndex = 1;
 				purchasedPrice = fruits[1].price;
+				bananasAverage.push(purchasedPrice);
+				averagePrice(bananasAverage, 'Bananas');
+				} else {
+								alert('You\'re broke!');
+				}
 				break;
 			case "Grapes":
+			if(fruits[2].price < wallet){
 				fruits[2].quantity += 1;
 				pickedIndex = 2;
 				purchasedPrice = fruits[2].price;
+				grapesAverage.push(purchasedPrice);
+				averagePrice(grapesAverage, 'Grapes');
+				updateWallet(fruits[pickedIndex].price);
+				} else {
+							alert('You\'re broke!');
+				}
 				break;
 			case "Oranges":
+			if(fruits[3].price < wallet){
 				fruits[3].quantity += 1;
 				pickedIndex = 3;
 				purchasedPrice = fruits[3].price;
+				orangesAverage.push(purchasedPrice);
+				averagePrice(orangesAverage, 'Oranges');
+				updateWallet(fruits[pickedIndex].price);
+				} else {
+							alert('You\'re broke!');
+				}
 				break;
 		}
 		updateInventory(fruits);
-		updateWallet(fruits[pickedIndex].price);
-		averagePrice(purchasedPrice);
+		// updateWallet(fruits[pickedIndex].price);
 		// alert(pickedFruit);
 
 	})
@@ -67,9 +100,29 @@ $(function(){
 	//update the price of the fruit on the page
 	function updateFruit(arr){
 		for (var i = 0; i < arr.length; i++) {
-			//console.log(fruits[i].price);
-			$('#' + fruits[i].name).children('h3').text('$' + fruits[i].price);
+			// console.log(' existing fruit price ' + fruits[i].price);
+			var randomNewNumber = randomNumber(-50, 50);
+			// console.log(' randomized number ' + randomNewNumber);
+			var fruitsPriceMulti = fruits[i].price * 100;
+			fruitsPriceMulti += randomNewNumber;
+			fruitsPriceMulti /= 100;
+			// fruits[i].price = fruitsPriceMulti;
+
+			if(fruitsPriceMulti > 9.99) {
+				fruitsPriceMulti = 9.99;
+			} else if (fruitsPriceMulti < .5){
+				fruitsPriceMulti = .5;
+			}
+			fruits[i].price = fruitsPriceMulti;
+
+
+			fruitsPriceMulti = fruitsPriceMulti.toLocaleString('en-us', {style: 'currency', currency: 'USD'})
+			// console.log(' new total' + fruitsPriceMulti);
+
+			$('#' + fruits[i].name).children('h3').text(fruitsPriceMulti);
+
 		}
+
 	}
 	// updates the amount of each fruit in the inventory
 	function updateInventory(arr){
@@ -77,12 +130,21 @@ $(function(){
 			$('#num' + fruits[i].name).text(fruits[i].quantity);
 		}
 	}
-	// function averagePrice(newData){
-	// 	averageArray.push(newData);
-	// 	for(var i=0; i< averageArray.length; i++){
-	// 		var total += averageArray[i];
-	// 		var average = (total/averageArray.length);
-	// 	}
-	// 	$('')
-	// }
+
+	var intervalID = setInterval(newMarket, 15000);
+	function newMarket(){
+		updateFruit(fruits);
+
+	}
+	function averagePrice(fruitPriceArray, f){
+
+		var total = 0;
+		for(var i=0; i< fruitPriceArray.length; i++){
+			total += fruitPriceArray[i];
+		}
+		var average = (total/fruitPriceArray.length).toLocaleString('en-us', {style: 'currency', currency: 'USD'});
+		// console.log(average);
+		$('.' + f).text(average);
+		}
+
 });
